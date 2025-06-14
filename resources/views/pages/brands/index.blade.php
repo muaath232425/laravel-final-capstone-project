@@ -5,11 +5,11 @@
 
 
         @if (session('success'))
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                toastr.success('{{ session('success') }}', 'Success');
-            });
-        </script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    toastr.success('{{ session('success') }}', 'Success');
+                });
+            </script>
         @endif
 
 
@@ -48,12 +48,15 @@
                                             <td>{{ $brand->id }}</td>
                                             <td>{{ $brand->brand_name }}</td>
                                             <td>{{ $brand->description ?? 'N/A' }}</td>
-                                             <td>
+                                            <td>
                                                 {{-- <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Edit</a> --}}
-                                                 <form action="{{ route('brands.destroy', $brand) }}" method="POST" style="display:inline;">
+                                                <form action="{{ route('brands.destroy', $brand) }}" method="POST"
+                                                    style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" onclick="return confirm('Do you Delete this record?')" class="btn btn-danger">Delete</button>
+                                                    <button type="submit"
+                                                        onclick="return confirm('Do you Delete this record?')"
+                                                        class="btn btn-danger">Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -66,8 +69,4 @@
             </div>
         </div>
     </div>
-
-
-
-
 @endsection

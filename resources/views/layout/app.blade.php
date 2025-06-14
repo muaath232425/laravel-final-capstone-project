@@ -15,14 +15,13 @@
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
-    {{-- datatable css link --}}
+      {{-- datatable css link --}}
     <link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" /> --}}
 
     {{-- toastr alert css link--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
 </head>
 
@@ -65,23 +64,22 @@
     <script src="{{asset('assets/js/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{asset('assets/plugins/apexchart/apexcharts.min.js')}}"></script>
     <script src="{{asset('assets/plugins/apexchart/chart-data.js')}}"></script>
-    <script src="{{asset('assets/js/script.js')}}"></script>
-    {{-- datatable js link --}}
+
+
+    {{-- datatable js external link --}}
     {{-- <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script> --}}
+    {{-- or internal template link --}}
     <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="assets/plugins/datatables/datatables.min.js"></script>
+
     {{-- toastr alert css link--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     {{-- toastr alert js link --}}
 
-{{--
-        <script>
-        $(document).ready(function() {
-            $('.datatable').DataTable({
-            });
-        });
-    </script> --}}
+     <script src="{{asset('assets/js/script.js')}}"></script>
+
+
 
 </body>
 
