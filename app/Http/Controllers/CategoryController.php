@@ -12,7 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        //   Elequent  ORM
+        $values = Category::all();
+        // dd($values);
+        return view('pages.category.index', compact('values'));
     }
 
     /**
@@ -20,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.category.create');
     }
 
     /**
@@ -28,7 +31,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_name' => 'required|string',
+            'description' => 'nullable|string|max:255',
+
+        ]);
+
+        Category::create([
+            'category_name' => $request->category_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**

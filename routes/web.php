@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +30,8 @@ Route::get('/test', function () {
 
 
 Route::resource('brands', BrandController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('products', ProductController::class);
 
 
 // or
