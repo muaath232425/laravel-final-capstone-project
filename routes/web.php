@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,13 +23,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/test', function () {
-    return view('pages.supplier.create');
-})->name('test');
-
 
 
 Route::resource('brands', BrandController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('suppliers', SupplierController::class);
 
 
 // or

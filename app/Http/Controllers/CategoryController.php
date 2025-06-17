@@ -12,7 +12,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+
+       $values = Category::all();
+       return view('pages.categories.index', compact('values'));
     }
 
     /**
@@ -20,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.categories.create');
     }
 
     /**
@@ -28,7 +30,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $request->validate([
+            'category_name' => 'required|string',
+            'description' => 'nullable|string|max:255',
+        ]);
+
+          Category::create([
+            'category_name' => $request->category_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
     /**
@@ -36,7 +48,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+
     }
 
     /**
@@ -44,7 +56,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('pages.categories.edit', compact('category'));
     }
 
     /**
@@ -52,7 +64,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+          $request->validate([
+            'category_name' => 'required|string',
+            'description' => 'nullable|string|max:255',
+        ]);
+
+        $category->update([
+            'category_name' => $request->category_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     /**
@@ -60,6 +82,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete(); //it will delete the record from the database
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }

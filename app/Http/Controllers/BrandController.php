@@ -38,7 +38,6 @@ class BrandController extends Controller
        $request->validate([
             'brand_name' => 'required|string',
             'description' => 'nullable|string|max:255',
-
         ]);
 
           Brand::create([
@@ -62,7 +61,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('pages.brands.edit', compact('brand'));
     }
 
     /**
@@ -70,7 +69,18 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+       
+        $request->validate([
+            'brand_name' => 'required|string',
+            'description' => 'nullable|string|max:255',
+        ]);
+
+        $brand->update([
+            'brand_name' => $request->brand_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('brands.index')->with('success', 'Brand updated successfully.');
     }
 
     /**
