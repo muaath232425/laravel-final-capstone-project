@@ -12,9 +12,16 @@ class CategoryController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 
        $values = Category::all();
        return view('pages.categories.index', compact('values'));
+=======
+        //   Elequent  ORM
+        $values = Category::all();
+        // dd($values);
+        return view('pages.category.index', compact('values'));
+>>>>>>> 85f4aadcfc4c574c7063aab123fd0fab0c93b174
     }
 
     /**
@@ -22,7 +29,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('pages.categories.create');
+=======
+        return view('pages.category.create');
+>>>>>>> 85f4aadcfc4c574c7063aab123fd0fab0c93b174
     }
 
     /**
@@ -30,12 +41,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
          $request->validate([
             'category_name' => 'required|string',
             'description' => 'nullable|string|max:255',
         ]);
 
           Category::create([
+=======
+        $request->validate([
+            'category_name' => 'required|string',
+            'description' => 'nullable|string|max:255',
+
+        ]);
+
+        Category::create([
+>>>>>>> 85f4aadcfc4c574c7063aab123fd0fab0c93b174
             'category_name' => $request->category_name,
             'description' => $request->description,
         ]);

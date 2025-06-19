@@ -7,6 +7,8 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 
 
@@ -44,8 +46,11 @@ require __DIR__.'/auth.php';
 
 Route::resource('brands', BrandController::class);
 Route::resource('categories', CategoryController::class);
+<<<<<<< HEAD
 Route::resource('suppliers', SupplierController::class);
 Route::resource('customers', CustomerController::class);
+=======
+>>>>>>> 85f4aadcfc4c574c7063aab123fd0fab0c93b174
 Route::resource('products', ProductController::class);
 
 

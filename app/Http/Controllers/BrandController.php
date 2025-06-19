@@ -36,7 +36,7 @@ class BrandController extends Controller
        // dd($request->all());
 
        $request->validate([
-            'brand_name' => 'required|string',
+            'brand_name' => 'required|string|unikue:brands,brand_name|max:255',
             'description' => 'nullable|string|max:255',
         ]);
 
