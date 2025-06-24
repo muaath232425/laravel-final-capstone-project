@@ -12,17 +12,17 @@ class BrandController extends Controller
      */
     public function index()
     {
-         //   Elequent  ORM
+        //   Elequent  ORM
         $values = Brand::all();
         // dd($values);
-       return view('pages.brands.index', compact('values'));
+        return view('pages.brands.index', compact('values'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
 
-     public function create()
+    public function create()
     {
 
         return view('pages.brands.create');
@@ -33,14 +33,19 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
+        // dd($request->all());
 
+<<<<<<< Updated upstream
        $request->validate([
             'brand_name' => 'required|string|unikue:brands,brand_name|max:255',
+=======
+        $request->validate([
+            'brand_name' => 'required|string',
+>>>>>>> Stashed changes
             'description' => 'nullable|string|max:255',
         ]);
 
-          Brand::create([
+        Brand::create([
             'brand_name' => $request->brand_name,
             'description' => $request->description,
         ]);
